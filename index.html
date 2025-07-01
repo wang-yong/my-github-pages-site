@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的工具导航</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+            color: #333;
+            font-size: 36px;
+            text-shadow: 1px 1px 2px #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 50px auto;
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 250px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: #f0f8ff;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>我的工具导航</h1>
+
+    <div class="container">
+        <a class="card" href="/carp">JSON 转 C# 工具</a>
+        <a class="card" href="/rollDice">扔筛子</a>
+        <a class="card" href="/pic">玫瑰图示例</a>
+        <a class="card" href="/table">table</a>
+        <a class="card" href="/number">number</a>
+    </div>
+
+    <footer>© 2025 我的工具箱</footer>
+
+</body>
+</html>
