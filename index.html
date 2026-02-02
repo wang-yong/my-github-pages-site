@@ -2,79 +2,68 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的工具导航</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Microsoft YaHei", Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h1 {
-            margin-top: 30px;
-            color: #333;
-            font-size: 36px;
-            text-shadow: 1px 1px 2px #fff;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 50px auto;
-            gap: 30px;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            width: 250px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: #333;
-            font-size: 20px;
-            padding: 20px;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            background: #f0f8ff;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px;
-            font-size: 14px;
-            color: #888;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文文本滚动展示器</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>我的工具导航</h1>
-
-    <div class="container">
-        <a class="card" href="/carp">JSON 转 C# 工具</a>
-        <a class="card" href="/rollDice">扔筛子</a>
-        <a class="card" href="/pic">玫瑰图示例</a>
-        <a class="card" href="/table">table</a>
-        <a class="card" href="/number">number</a>
+    <!-- 输入区域 -->
+    <div id="inputSection" class="input-section">
+        <div class="container">
+            <h1>英文文本滚动展示器</h1>
+            <p class="description">输入或粘贴英文短文，点击开始播放后，文本将以字幕形式从下向上滚动展示</p>
+            
+            <textarea 
+                id="textInput" 
+                class="text-input" 
+                placeholder="请在此输入或粘贴英文短文..."
+                maxlength="5000"
+            ></textarea>
+            
+            <div class="controls">
+                <div class="settings">
+                    <label>
+                        <span>字体大小:</span>
+                        <input type="range" id="fontSizeSlider" min="20" max="48" value="32" step="2">
+                        <span id="fontSizeValue">32px</span>
+                    </label>
+                    
+                    <label>
+                        <span>滚动速度:</span>
+                        <input type="range" id="speedSlider" min="10" max="60" value="30" step="5">
+                        <span id="speedValue">30px/s</span>
+                    </label>
+                </div>
+                
+                <button id="startBtn" class="start-btn">开始播放</button>
+            </div>
+            
+            <div class="char-count">
+                字符数: <span id="charCount">0</span> / 5000
+            </div>
+        </div>
     </div>
 
-    <footer>© 2025 我的工具箱</footer>
+    <!-- 播放区域 -->
+    <div id="playSection" class="play-section hidden">
+        <div class="play-container">
+            <div id="scrollText" class="scroll-text"></div>
+        </div>
+        
+        <div class="play-controls">
+            <button id="pauseBtn" class="control-btn">暂停</button>
+            <button id="resumeBtn" class="control-btn hidden">继续</button>
+            <button id="exitBtn" class="control-btn">退出</button>
+        </div>
+        
+        <div class="midline"></div>
+    </div>
 
+    <!-- 页脚签名 -->
+    <footer class="footer">
+        <p>由 <a href="https://with.woa.com/" style="color: #8A2BE2;" target="_blank">With</a> 通过自然语言生成</p>
+    </footer>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>
